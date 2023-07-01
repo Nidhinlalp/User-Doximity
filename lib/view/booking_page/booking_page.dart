@@ -61,6 +61,13 @@ class _BookingPageState extends State<BookingPage> {
 
     try {
       _razorpay?.open(options);
+      await context.read<BookingProvider>().booking(
+            widget.drUid,
+            context,
+            widget.allDoctorsDetails.profilePic,
+            widget.allDoctorsDetails.department,
+            widget.allDoctorsDetails.name,
+          );
     } catch (e) {
       debugPrint(e as String?);
     }
@@ -246,16 +253,11 @@ class _BookingPageState extends State<BookingPage> {
                             widget.allDoctorsDetails.name,
                             '${widget.allDoctorsDetails.consaltaionFee}00',
                           );
-                          await context.read<BookingProvider>().booking(
-                                widget.drUid,
-                                context,
-                                widget.allDoctorsDetails.profilePic,
-                                widget.allDoctorsDetails.department,
-                                widget.allDoctorsDetails.name,
-                              );
-                          if (mounted) {
-                            //Navigator.pop(context);
-                          }
+                          // log(widget.allDoctorsDetails.toString());
+
+                          // if (mounted) {
+                          //   //Navigator.pop(context);
+                          // }
                         }
                       },
                       style: ButtonStyle(
