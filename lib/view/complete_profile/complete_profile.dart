@@ -109,13 +109,17 @@ class CompleteProfile extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: CupertinoButton(
-                    child: Text(
-                      'Submit',
-                      style: Theme.of(context)
-                          .textTheme
-                          .headlineMedium!
-                          .copyWith(color: kWhiteColor),
-                    ),
+                    child: context.watch<UserProfile>().isProfileLoding
+                        ? const CircularProgressIndicator(
+                            color: Colors.white,
+                          )
+                        : Text(
+                            'Submit',
+                            style: Theme.of(context)
+                                .textTheme
+                                .headlineMedium!
+                                .copyWith(color: kWhiteColor),
+                          ),
                     onPressed: () {
                       context.read<UserProfile>().addUserProfile(context);
                     },

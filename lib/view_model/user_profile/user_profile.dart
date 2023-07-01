@@ -42,6 +42,7 @@ class UserProfile with ChangeNotifier {
 
   Future addUserProfile(BuildContext context) async {
     isProfileLoding = true;
+    notifyListeners();
     var userRef = users.doc(myUid);
     String? profilePicUrl = await uploadFile(userRef.id);
     if (profilePicUrl == null) {
@@ -64,6 +65,7 @@ class UserProfile with ChangeNotifier {
           },
         );
     isProfileLoding = false;
+    notifyListeners();
   }
 
   Future editeUserProfile(BuildContext context) async {
