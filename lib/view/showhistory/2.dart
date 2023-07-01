@@ -56,11 +56,17 @@ class History extends StatelessWidget {
                 return const Center(
                   child: CupertinoActivityIndicator(),
                 );
-              } else if (snapshot.data!.data()!['history'] == null) {
-                return const Center(
-                  child: Text('No History'),
-                );
               } else if (snapshot.hasData) {
+                if (snapshot.data!.data() == null) {
+                  return const Center(
+                    child: Text('No History'),
+                  );
+                }
+                if (snapshot.data!.data()!['history'] == null) {
+                  return const Center(
+                    child: Text('No History'),
+                  );
+                }
                 return ListView.builder(
                   itemCount: snapshot.data!.data()!.length,
                   itemBuilder: (context, index) {

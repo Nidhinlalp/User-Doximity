@@ -3,7 +3,7 @@ import 'package:doximity/view/complete_profile/edite_profile.dart';
 import 'package:doximity/view/const/alert_box/alertbx.dart';
 import 'package:doximity/view/const/color/colors.dart';
 import 'package:doximity/view/const/size/size.dart';
-import 'package:doximity/view/showhistory/history.dart';
+import 'package:doximity/view/showhistory/2.dart';
 import 'package:doximity/view/side_menu_drawer.dart/widget/privacy_policy.dart';
 import 'package:doximity/view/side_menu_drawer.dart/widget/terms_and_conditions.dart';
 import 'package:doximity/view_model/authprovider/auth.dart';

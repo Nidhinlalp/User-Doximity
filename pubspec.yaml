@@ -65,6 +65,11 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
+  flutter_launcher_icons: ^0.13.1
+flutter_icons:
+  image_path: "assets/icons/icon.png"
+  android: true
+  ios: true
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -90,6 +95,7 @@ flutter:
     - assets/icons/Icons-chat.png
     - assets/icons/Radiologists.png
     - assets/icons/Orthopedic.png
+    - assets/icons/icon.png
     - assets/icons/otolaryngologist.png
     - assets/icons/Ophthalmologist.png
     - assets/icons/Icons-Artboard 31 1.png
