@@ -17,7 +17,7 @@ class CompleteProfileEdite extends StatelessWidget {
     required this.userNames,
   }) : super(key: key);
 
-  static TextEditingController userName = TextEditingController(text: '');
+  static TextEditingController userName = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -93,6 +93,7 @@ class CompleteProfileEdite extends StatelessWidget {
               kHight50,
               FadeInRight(
                 child: TextFormField(
+                  initialValue: userNames,
                   // validator: validator,
                   controller: userName,
                   textInputAction: TextInputAction.done,
