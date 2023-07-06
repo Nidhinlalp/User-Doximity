@@ -321,8 +321,8 @@ class _ChatPageState extends State<ChatPage> {
                                                                                 snapshot) {
                                                                           if (!snapshot
                                                                               .hasData) {
-                                                                            return Row(
-                                                                              children: const [
+                                                                            return const Row(
+                                                                              children: [
                                                                                 Icon(
                                                                                   Icons.star,
                                                                                   color: kGrayColor600,

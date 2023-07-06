@@ -70,6 +70,7 @@ class UserProfile with ChangeNotifier {
 
   Future editeUserProfile(BuildContext context) async {
     isProfileUpdateLoding = true;
+    notifyListeners();
     var userRef = users.doc(myUid);
     String? profilePicUrl = await uploadFile(userRef.id);
     if (profilePicUrl == null) {
@@ -82,5 +83,32 @@ class UserProfile with ChangeNotifier {
     };
     userRef.update(userData).then((value) => Navigator.pop(context));
     isProfileUpdateLoding = false;
+    notifyListeners();
+  }
+
+  Future<String> getProfile() async {
+    var myUid = FirebaseAuth.instance.currentUser!.uid;
+
+    final collectionRef = FirebaseFirestore.instance.collection('userProfile');
+
+    final docRef = collectionRef.doc(myUid);
+
+    final data = await docRef.get();
+
+    var profile = data['profilePic'];
+    return profile;
+  }
+
+  Future<String> getUserName() async {
+    var myUid = FirebaseAuth.instance.currentUser!.uid;
+
+    final collectionRef = FirebaseFirestore.instance.collection('userProfile');
+
+    final docRef = collectionRef.doc(myUid);
+
+    final data = await docRef.get();
+
+    var userName = data['userName'];
+    return userName;
   }
 }

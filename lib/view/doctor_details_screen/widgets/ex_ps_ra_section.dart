@@ -118,8 +118,8 @@ class Exp_Ps_Ra_Section extends StatelessWidget {
                 builder: (BuildContext context,
                     AsyncSnapshot<QuerySnapshot> snapshot) {
                   if (!snapshot.hasData) {
-                    return Row(
-                      children: const [
+                    return const Row(
+                      children: [
                         Icon(
                           Icons.star,
                           color: kGrayColor600,

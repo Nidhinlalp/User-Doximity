@@ -24,7 +24,7 @@ class SingInForgetPasswordTextBuotton extends StatelessWidget {
               );
             },
             child: Text(
-              'Forger Password?',
+              'Forget Password?',
               style: kNormalStyle.copyWith(
                   fontSize: 15,
                   color: Colors.grey.shade500,

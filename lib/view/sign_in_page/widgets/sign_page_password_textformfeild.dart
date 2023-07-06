@@ -11,6 +11,7 @@ class SingInPagePasswordTextFormFeild extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8.0),
       child: TextFormField(
+        obscureText: true,
         validator: (value) {
           if (value == null || value.isEmpty) {
             return 'Please enter Your Password.....!';

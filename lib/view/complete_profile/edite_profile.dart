@@ -1,18 +1,27 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:developer';
+
 import 'package:animate_do/animate_do.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
 import 'package:doximity/view/const/color/colors.dart';
 import 'package:doximity/view/const/size/size.dart';
 import 'package:doximity/view_model/user_profile/user_profile.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:iconly/iconly.dart';
-import 'package:provider/provider.dart';
 
 class CompleteProfileEdite extends StatelessWidget {
-  const CompleteProfileEdite({super.key});
-  static TextEditingController userName = TextEditingController();
+  final String userNames;
+  const CompleteProfileEdite({
+    Key? key,
+    required this.userNames,
+  }) : super(key: key);
+
+  static TextEditingController userName = TextEditingController(text: '');
 
   @override
   Widget build(BuildContext context) {
+    log(userNames.toString());
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -54,17 +63,29 @@ class CompleteProfileEdite extends StatelessWidget {
                     ),
                     child: FadeInLeft(
                       child: ClipRRect(
-                        borderRadius: BorderRadius.circular(100),
-                        child: context.watch<UserProfile>().file != null
-                            ? Image.file(
-                                context.watch<UserProfile>().file!,
-                                fit: BoxFit.cover,
-                              )
-                            : const Icon(
-                                IconlyBold.profile,
-                                size: 50,
-                              ),
-                      ),
+                          borderRadius: BorderRadius.circular(100),
+                          child: context.watch<UserProfile>().file != null
+                              ? Image.file(
+                                  context.watch<UserProfile>().file!,
+                                  fit: BoxFit.cover,
+                                )
+                              : FutureBuilder(
+                                  future:
+                                      context.read<UserProfile>().getProfile(),
+                                  builder: (context, snapshot) {
+                                    if (!snapshot.hasData) {
+                                      return const Center(
+                                        child: Text('Loading....,'),
+                                      );
+                                    }
+                                    return ClipRRect(
+                                      borderRadius: BorderRadius.circular(100),
+                                      child: Image.network(
+                                        snapshot.data!,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    );
+                                  })),
                     ),
                   ),
                 ),

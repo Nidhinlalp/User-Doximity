@@ -69,7 +69,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '356718301171',
     projectId: 'dr-booking-4cf98',
     storageBucket: 'dr-booking-4cf98.appspot.com',
-    iosClientId: '356718301171-bbqopq0p650jfjjhsncf8nlkr0lcii57.apps.googleusercontent.com',
+    iosClientId:
+        '356718301171-bbqopq0p650jfjjhsncf8nlkr0lcii57.apps.googleusercontent.com',
     iosBundleId: 'com.example.doximity',
   );
 }

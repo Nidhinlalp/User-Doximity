@@ -174,8 +174,8 @@ class _TopDoctorsListState extends State<TopDoctorsList> {
                                                                   QuerySnapshot>
                                                               snapshot) {
                                                         if (!snapshot.hasData) {
-                                                          return Row(
-                                                            children: const [
+                                                          return const Row(
+                                                            children: [
                                                               Icon(
                                                                 Icons.star,
                                                                 color:

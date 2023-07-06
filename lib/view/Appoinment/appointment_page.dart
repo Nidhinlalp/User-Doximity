@@ -24,8 +24,8 @@ class AppointMentPage extends StatelessWidget {
             ),
           ),
         ),
-        body: Column(
-          children: const [
+        body: const Column(
+          children: [
             TabBar(
               tabs: [
                 Tab(

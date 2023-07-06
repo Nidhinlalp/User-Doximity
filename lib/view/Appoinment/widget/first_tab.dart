@@ -114,7 +114,8 @@ class FirstTab extends StatelessWidget {
                                   kHight20,
                                   bookingDrDetails.decline == true
                                       ? FadeInLeft(
-                                          delay: Duration(milliseconds: 500),
+                                          delay:
+                                              const Duration(milliseconds: 500),
                                           child: Row(
                                             children: [
                                               Expanded(
@@ -130,11 +131,11 @@ class FirstTab extends StatelessWidget {
                                                         BorderRadius.circular(
                                                             10),
                                                   ),
-                                                  child: Column(
+                                                  child: const Column(
                                                     mainAxisAlignment:
                                                         MainAxisAlignment
                                                             .center,
-                                                    children: const [
+                                                    children: [
                                                       Center(
                                                         child: Icon(
                                                           Icons

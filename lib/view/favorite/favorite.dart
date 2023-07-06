@@ -65,7 +65,7 @@ class FavoritePage extends StatelessWidget {
                         child: Text('No Favorites '),
                       )
                     : snapshot.data!.docs.isEmpty
-                        ? Center(
+                        ? const Center(
                             child: Text('no data'),
                           )
                         : ListView.builder(

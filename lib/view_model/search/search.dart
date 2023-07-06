@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
@@ -16,8 +14,6 @@ class Search with ChangeNotifier {
         .get();
 
     searchResult = result.docs.map((e) => e.data()).toList();
-    log('${searchResult.toString()}addedd');
-    log(query.toString());
     notifyListeners();
   }
 }

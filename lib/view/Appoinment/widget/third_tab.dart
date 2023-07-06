@@ -127,10 +127,10 @@ class ThirdTab extends StatelessWidget {
                                                 borderRadius:
                                                     BorderRadius.circular(10),
                                               ),
-                                              child: Column(
+                                              child: const Column(
                                                 mainAxisAlignment:
                                                     MainAxisAlignment.center,
-                                                children: const [
+                                                children: [
                                                   Center(
                                                     child: Icon(
                                                       Icons

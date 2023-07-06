@@ -12,6 +12,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../view_model/user_profile/user_profile.dart';
+
 class DrawerList extends StatelessWidget {
   const DrawerList({
     super.key,
@@ -74,11 +76,14 @@ class DrawerList extends StatelessWidget {
                   kHight30,
                   _AboutInUser(
                     icon: Icons.person,
-                    onpressed: () {
+                    onpressed: () async {
+                      var userName =
+                          await context.read<UserProfile>().getUserName();
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const CompleteProfileEdite(),
+                          builder: (context) =>
+                              CompleteProfileEdite(userNames: userName),
                         ),
                       );
                     },
@@ -123,7 +128,7 @@ class DrawerList extends StatelessWidget {
                         ),
                       );
                     },
-                    text: 'Privacy Pollycy',
+                    text: 'Privacy Policy',
                   ),
                   const Padding(
                     padding: EdgeInsets.symmetric(horizontal: 15.0),

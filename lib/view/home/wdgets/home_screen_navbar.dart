@@ -7,9 +7,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
+import 'package:provider/provider.dart';
 
 import '../../../view_model/drdetails/dr_details.dart';
 
+import '../../../view_model/user_profile/user_profile.dart';
 import '../../doctor_details_screen/doctor_details.dart';
 
 class HomeScreenNavbar extends StatelessWidget {
@@ -35,11 +37,14 @@ class HomeScreenNavbar extends StatelessWidget {
                     width: 35,
                     height: 35,
                     child: GestureDetector(
-                      onTap: () {
+                      onTap: () async {
+                        var userName =
+                            await context.read<UserProfile>().getUserName();
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const CompleteProfileEdite(),
+                            builder: (context) =>
+                                CompleteProfileEdite(userNames: userName),
                           ),
                         );
                       },
