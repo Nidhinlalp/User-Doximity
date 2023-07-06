@@ -86,13 +86,17 @@ class SignUpPage extends StatelessWidget {
                           child: SingInPagePasswordTextFormFeild(),
                         ),
                         kHight50,
-                        SingInButton(
-                          name: 'Sign Up',
-                          onPressed: () {
-                            signUp(authProvider, context);
-                          },
-                          formKey: _formKey,
-                        ),
+                        context.watch<AuthProvider>().isSignUpLoding
+                            ? const CircularProgressIndicator(
+                                color: Colors.black,
+                              )
+                            : SingInButton(
+                                name: 'Sign Up',
+                                onPressed: () {
+                                  signUp(authProvider, context);
+                                },
+                                formKey: _formKey,
+                              ),
                         kHight30,
                         const SignUpButton(
                           lastText: 'Have an account?',

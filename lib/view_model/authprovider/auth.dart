@@ -15,6 +15,7 @@ class AuthProvider with ChangeNotifier {
   AuthProvider(this._fb);
   bool isLoading = false;
   bool isGoogleLoding = false;
+  bool isSignUpLoding = false;
   Stream<User?> stream() => _fb.authStateChanges();
   bool get loading => isLoading;
 
@@ -73,7 +74,7 @@ class AuthProvider with ChangeNotifier {
 
   Future signUp(String email, String password, BuildContext context) async {
     try {
-      isGoogleLoding = true;
+      isSignUpLoding = true;
       notifyListeners();
       await _fb
           .createUserWithEmailAndPassword(
@@ -90,11 +91,11 @@ class AuthProvider with ChangeNotifier {
             },
           );
 
-      isGoogleLoding = false;
+      isSignUpLoding = false;
       notifyListeners();
       return Future.value('');
     } on FirebaseAuthException catch (ex) {
-      isGoogleLoding = false;
+      isSignUpLoding = false;
       notifyListeners();
       log(ex.message!);
       log(ex.toString());

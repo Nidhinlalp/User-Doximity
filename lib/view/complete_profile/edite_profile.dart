@@ -10,18 +10,23 @@ import 'package:doximity/view/const/color/colors.dart';
 import 'package:doximity/view/const/size/size.dart';
 import 'package:doximity/view_model/user_profile/user_profile.dart';
 
-class CompleteProfileEdite extends StatelessWidget {
+class CompleteProfileEdite extends StatefulWidget {
   final String userNames;
   const CompleteProfileEdite({
     Key? key,
     required this.userNames,
   }) : super(key: key);
 
-  static TextEditingController userName = TextEditingController();
+  static TextEditingController userName = TextEditingController(text: '');
 
   @override
+  State<CompleteProfileEdite> createState() => _CompleteProfileEditeState();
+}
+
+class _CompleteProfileEditeState extends State<CompleteProfileEdite> {
+  @override
   Widget build(BuildContext context) {
-    log(userNames.toString());
+    log(widget.userNames.toString());
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -93,9 +98,8 @@ class CompleteProfileEdite extends StatelessWidget {
               kHight50,
               FadeInRight(
                 child: TextFormField(
-                  initialValue: userNames,
                   // validator: validator,
-                  controller: userName,
+                  controller: CompleteProfileEdite.userName,
                   textInputAction: TextInputAction.done,
                   //    controller: emailController,
                   decoration: InputDecoration(
